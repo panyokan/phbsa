@@ -1,103 +1,168 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import HeroSlideshow from "@/components/HeroSlideshow";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Lumière Studio — Photography",
+  description:
+    "Award-winning photography studio specializing in portraits, weddings, and commercial work.",
+};
+
+const portfolioTeaser = [
+  { src: "https://placehold.co/600x750/2D2820/C4A06A?text=Portrait",   alt: "Portrait"   },
+  { src: "https://placehold.co/600x750/1A1714/B8873A?text=Wedding",    alt: "Wedding"    },
+  { src: "https://placehold.co/600x750/3D3730/D4A454?text=Commercial", alt: "Commercial" },
+];
+
+const packages = [
+  { name: "Essential", price: "$850",   desc: "2-hour portrait session · 30 edited images" },
+  { name: "Classic",   price: "$1,800", desc: "Half-day coverage · 80 edited images"        },
+  { name: "Premium",   price: "$3,500", desc: "Full-day coverage · unlimited edited images"  },
+];
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <HeroSlideshow />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* ── About Teaser ── */}
+      <section className="py-24 md:py-32 bg-parchment">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="relative aspect-[3/4] overflow-hidden">
+              <Image
+                src="https://placehold.co/700x900/2D2820/C4A06A?text=Photographer"
+                alt="Photographer"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
+            </div>
+            <div className="flex flex-col gap-6">
+              <p className="text-xs tracking-[0.2em] uppercase text-gold">About the Studio</p>
+              <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.1] tracking-[-0.02em]">
+                Photography is an act of faith.
+              </h2>
+              <p className="text-muted leading-[1.8]">
+                Founded in 2012, Lumière Studio has built a reputation for intimate,
+                emotionally resonant photography. We believe every photograph should
+                tell a story — yours, told beautifully.
+              </p>
+              <p className="text-muted leading-[1.8]">
+                Based in New York, we work with clients across the country and
+                internationally for destination weddings and commercial projects.
+              </p>
+              <Link
+                href="/about"
+                className="self-start text-sm tracking-[0.08em] uppercase text-gold border-b border-gold pb-0.5 hover:text-gold-dark hover:border-gold-dark transition-colors duration-200 focus-visible:outline-none"
+              >
+                Our Story →
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* ── Portfolio Teaser ── */}
+      <section className="py-24 md:py-32 bg-parchment-dark">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div>
+              <p className="text-xs tracking-[0.2em] uppercase text-gold mb-3">Recent Work</p>
+              <h2 className="font-display text-4xl md:text-5xl text-ink tracking-[-0.02em]">
+                Selected Portfolio
+              </h2>
+            </div>
+            <Link
+              href="/portfolio"
+              className="self-start text-sm tracking-[0.08em] uppercase text-gold border-b border-gold pb-0.5 hover:text-gold-dark hover:border-gold-dark transition-colors duration-200 focus-visible:outline-none"
+            >
+              View Full Gallery →
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {portfolioTeaser.map((item, i) => (
+              <Link
+                key={i}
+                href="/portfolio"
+                className="group block relative aspect-[4/5] overflow-hidden"
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Pricing Teaser ── */}
+      <section className="py-24 md:py-32 bg-parchment">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="text-center mb-14">
+            <p className="text-xs tracking-[0.2em] uppercase text-gold mb-3">Investment</p>
+            <h2 className="font-display text-4xl md:text-5xl text-ink tracking-[-0.02em]">
+              Simple, Transparent Pricing
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {packages.map((pkg, i) => (
+              <div
+                key={pkg.name}
+                className={`p-8 flex flex-col gap-4 ${
+                  i === 1 ? "bg-ink text-parchment" : "bg-parchment-dark text-ink"
+                }`}
+              >
+                <p className={`text-xs tracking-[0.15em] uppercase ${i === 1 ? "text-gold-light" : "text-gold"}`}>
+                  {pkg.name}
+                </p>
+                <p className={`font-display text-4xl tracking-[-0.02em] ${i === 1 ? "text-parchment" : "text-ink"}`}>
+                  {pkg.price}
+                </p>
+                <p className={`text-sm leading-relaxed ${i === 1 ? "text-parchment/60" : "text-muted"}`}>
+                  {pkg.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              href="/pricing"
+              className="inline-flex text-sm tracking-[0.08em] uppercase text-gold border-b border-gold pb-0.5 hover:text-gold-dark hover:border-gold-dark transition-colors duration-200 focus-visible:outline-none"
+            >
+              See Full Pricing Details →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Book CTA ── */}
+      <section className="py-24 md:py-36 bg-ink-soft">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <p className="text-xs tracking-[0.2em] uppercase text-gold mb-4">Ready?</p>
+          <h2 className="font-display text-4xl md:text-6xl text-parchment leading-[1.1] tracking-[-0.02em] mb-6">
+            Let&apos;s Create Something<br />
+            <span className="italic text-gold-light">Extraordinary</span>
+          </h2>
+          <p className="text-parchment/60 leading-relaxed mb-10 max-w-lg mx-auto">
+            Sessions book out 4–6 weeks in advance. Reserve your date today and
+            let&apos;s begin building your story.
+          </p>
+          <Link
+            href="/book"
+            className="inline-flex items-center bg-gold text-ink px-10 py-4 text-sm tracking-[0.1em] uppercase font-medium transition-colors duration-200 hover:bg-gold-light active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+          >
+            Book a Session
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }
