@@ -76,6 +76,7 @@ const slides: {
 export default function HeroSlideshow() {
   const [current, setCurrent] = useState(0);
   const [fading, setFading] = useState(false);
+  const [activations, setActivations] = useState<number[]>(slides.map(() => 0));
 
   const goTo = useCallback(
     (index: number) => {
@@ -83,8 +84,13 @@ export default function HeroSlideshow() {
       setFading(true);
       setTimeout(() => {
         setCurrent(index);
-        setFading(false);
-      }, 350);
+        setActivations(prev => {
+          const next = [...prev];
+          next[index] += 1;
+          return next;
+        });
+      }, 300);
+      setTimeout(() => setFading(false), 1300);
     },
     [fading]
   );
@@ -94,7 +100,7 @@ export default function HeroSlideshow() {
   }, [current, goTo]);
 
   useEffect(() => {
-    const t = setInterval(next, 6000);
+    const t = setInterval(next, 5000);
     return () => clearInterval(t);
   }, [next]);
 
@@ -106,10 +112,14 @@ export default function HeroSlideshow() {
       {slides.map((s, i) => (
         <div
           key={s.id}
-          className={`absolute inset-0 transition-opacity duration-700 ${
+          className={`absolute inset-0 transition-opacity duration-[1200ms] ease-in-out ${
             i === current ? "opacity-100" : "opacity-0"
           }`}
         >
+          <div
+            key={`${s.id}-${activations[i]}`}
+            className="absolute inset-0 animate-ken-burns"
+          >
           {/* mobile image */}
           <Image
             src={s.mobileImage ?? s.image}
@@ -130,6 +140,7 @@ export default function HeroSlideshow() {
             style={{ objectPosition: s.objectPosition }}
             sizes="100vw"
           />
+          </div>
           {/* top scrim — nav legibility */}
           <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-ink/80 to-transparent" />
           {/* bottom scrim — text legibility */}
