@@ -4,15 +4,15 @@ import Link from "next/link";
 import HeroSlideshow from "@/components/HeroSlideshow";
 
 export const metadata: Metadata = {
-  title: "Lumière Studio — Photography",
+  title: "Photo By Sandra — Photography",
   description:
-    "Award-winning photography studio specializing in portraits, weddings, and commercial work.",
+    "Photo By Sandra — a friendly photography shop specializing in portraits, weddings, and commercial work.",
 };
 
 const portfolioTeaser = [
-  { src: "https://placehold.co/600x750/2D2820/C4A06A?text=Portrait",   alt: "Portrait"   },
-  { src: "https://placehold.co/600x750/1A1714/B8873A?text=Wedding",    alt: "Wedding"    },
-  { src: "https://placehold.co/600x750/3D3730/D4A454?text=Commercial", alt: "Commercial" },
+  { src: "/images/mis/ethereal-portraits.jpg", alt: "Portrait",   pos: "object-center"    },
+  { src: "/images/mis/whisky-commercial.jpg",  alt: "Commercial", pos: "object-center" },
+  { src: "/images/mis/fashion-forward.jpg",    alt: "Fashion",    pos: "object-bottom"    },
 ];
 
 const packages = [
@@ -30,13 +30,14 @@ export default function HomePage() {
       <section className="py-24 md:py-32 bg-parchment">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div className="relative aspect-[3/4] overflow-hidden">
+            <div className="relative overflow-hidden">
               <Image
-                src="https://placehold.co/700x900/2D2820/C4A06A?text=Photographer"
+                src="/images/mis/philo.jpg"
                 alt="Photographer"
-                fill
-                className="object-cover"
+                width={0}
+                height={0}
                 sizes="(max-width: 768px) 100vw, 50vw"
+                className="w-full h-auto"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
             </div>
@@ -46,13 +47,12 @@ export default function HomePage() {
                 Photography is an act of faith.
               </h2>
               <p className="text-muted leading-[1.8]">
-                Founded in 2012, Lumière Studio has built a reputation for intimate,
-                emotionally resonant photography. We believe every photograph should
-                tell a story — yours, told beautifully.
+                Photo By Sandra is a small, passionate photography shop. We believe
+                every photograph should tell a story — yours, told beautifully.
               </p>
               <p className="text-muted leading-[1.8]">
-                Based in New York, we work with clients across the country and
-                internationally for destination weddings and commercial projects.
+                We work with real people on real moments — portraits, weddings,
+                events, and commercial projects, big or small.
               </p>
               <Link
                 href="/about"
@@ -93,7 +93,7 @@ export default function HomePage() {
                   src={item.src}
                   alt={item.alt}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className={`object-cover ${item.pos} transition-transform duration-500 group-hover:scale-105`}
                   sizes="(max-width: 640px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

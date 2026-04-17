@@ -46,7 +46,5 @@ body {
   color: var(--color-ink);
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--color-parchment-dark); }
-::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--color-gold-dark); }
+::-webkit-scrollbar { display: none; }
+* { scrollbar-width: none; }

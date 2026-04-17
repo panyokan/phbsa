@@ -72,11 +72,14 @@ export default function ContactForm() {
           className={`${inputCls} cursor-pointer appearance-none`}
         >
           <option value="" disabled>Select a subject</option>
-          <option value="portrait">Portrait Session</option>
-          <option value="wedding">Wedding Photography</option>
-          <option value="event">Event Coverage</option>
-          <option value="commercial">Commercial Work</option>
-          <option value="other">Other Enquiry</option>
+          <option value="maternity">Maternity</option>
+          <option value="newborn">New Born</option>
+          <option value="events">Events</option>
+          <option value="graduation">Graduation</option>
+          <option value="family">Family</option>
+          <option value="headshots">Headshots</option>
+          <option value="children">Children</option>
+          <option value="other">Other</option>
         </select>
       </div>
 

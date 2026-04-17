@@ -4,13 +4,13 @@ import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with Lumière Studio for bookings and enquiries.",
+  description: "Get in touch with Photo By Sandra for bookings and enquiries.",
 };
 
 const info = [
-  { label: "Email",          value: "hello@lumierestudio.com"           },
-  { label: "Phone",          value: "+1 (212) 555-0147"                 },
-  { label: "Studio Address", value: "248 Spring Street, New York, NY 10013" },
+  { label: "Email",          value: "info@photobysandra.com"            },
+  { label: "Phone",          value: "+1 202 527 4695"                   },
+  { label: "Studio Address", value: "10300 Little Patuxent Pkwy, Columbia, MD 21044, United States" },
   { label: "Office Hours",   value: "Mon–Fri, 9am–6pm ET"               },
 ];
 
@@ -59,9 +59,9 @@ export default function ContactPage() {
                 <p className="text-xs tracking-[0.2em] uppercase text-gold mb-6">Follow Our Work</p>
                 <div className="flex flex-col gap-3">
                   {[
-                    "Instagram @lumierestudio",
-                    "Pinterest /lumierestudio",
-                    "Behance /lumierestudio",
+                    "Instagram @photobysandra",
+                    "Pinterest /photobysandra",
+                    "Behance /photobysandra",
                   ].map((s) => (
                     <a
                       key={s}

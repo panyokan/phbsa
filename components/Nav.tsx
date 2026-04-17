@@ -46,9 +46,9 @@ export default function Nav() {
             <Link
               href="/"
               onClick={() => setMenuOpen(false)}
-              className="font-display text-xl tracking-[0.12em] text-gold-light uppercase"
+              className="font-display text-xl tracking-[0.12em] text-gold-light uppercase [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]"
             >
-              Lumière
+              Photo By Sandra
             </Link>
 
             {/* Desktop nav */}
@@ -59,8 +59,8 @@ export default function Nav() {
                   href={href}
                   className={`text-xs tracking-[0.1em] uppercase transition-colors duration-200 ${
                     isActive(href)
-                      ? "text-gold-light"
-                      : "text-parchment/70 hover:text-parchment"
+                      ? "text-gold-light [text-shadow:0_1px_8px_rgba(0,0,0,0.6)]"
+                      : "text-parchment [text-shadow:0_1px_8px_rgba(0,0,0,0.6)] hover:text-white"
                   }`}
                 >
                   {label}

@@ -20,11 +20,11 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Lumière Studio — Photography",
-    template: "%s | Lumière Studio",
+    default: "Photo By Sandra — Photography",
+    template: "%s | Photo By Sandra",
   },
   description:
-    "Award-winning photography studio specializing in portraits, weddings, and commercial work. Based in New York.",
+    "A friendly photography shop specializing in portraits, weddings, and commercial work.",
 };
 
 export default function RootLayout({

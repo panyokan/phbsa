@@ -89,8 +89,8 @@ export default function HowWeWorkPage() {
               }`}
             >
               <div className="flex md:flex-col gap-4 md:gap-2">
-                <p className="font-display text-3xl text-gold-pale">{step.number}</p>
-                <p className="text-xs tracking-[0.1em] uppercase text-subtle self-end md:self-auto">
+                <p className="font-display text-3xl text-gold">{step.number}</p>
+                <p className="text-xs tracking-[0.1em] uppercase text-muted self-end md:self-auto">
                   {step.duration}
                 </p>
               </div>

@@ -18,11 +18,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <p className="font-display text-2xl tracking-[0.12em] text-gold-light uppercase mb-4">
-              Lumière
+              Photo By Sandra
             </p>
             <p className="text-sm leading-relaxed text-parchment/50">
-              Award-winning photography studio<br />
-              capturing life&apos;s most meaningful moments.
+              A small photography shop with a big<br />
+              love for capturing your moments.
             </p>
           </div>
 
@@ -51,9 +51,9 @@ export default function Footer() {
               Get in Touch
             </p>
             <ul className="space-y-2.5 text-sm text-parchment/50">
-              <li>hello@lumierestudio.com</li>
-              <li>+1 (212) 555-0147</li>
-              <li className="pt-1">New York, NY 10001</li>
+              <li>info@photobysandra.com</li>
+              <li>+1 202 527 4695</li>
+              <li className="pt-1">10300 Little Patuxent Pkwy, Columbia, MD 21044</li>
             </ul>
             <div className="flex gap-4 mt-6">
               {["Instagram", "Pinterest", "X"].map((name) => (
@@ -72,7 +72,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-parchment/10 flex flex-col sm:flex-row justify-between gap-4">
           <p className="text-xs text-parchment/30">
-            © {new Date().getFullYear()} Lumière Studio. All rights reserved.
+            © {new Date().getFullYear()} Photo By Sandra. All rights reserved.
           </p>
           <p className="text-xs text-parchment/30">
             Privacy Policy · Terms of Service

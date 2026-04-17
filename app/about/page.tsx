@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about Lumière Studio and our approach to photography.",
+  description: "Learn about Photo By Sandra and our approach to photography.",
 };
 
 const values = [
@@ -30,8 +30,8 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <p className="text-xs tracking-[0.2em] uppercase text-gold mb-4">Our Story</p>
           <h1 className="font-display text-5xl md:text-7xl text-parchment leading-[1.05] tracking-[-0.02em] max-w-2xl">
-            Twelve years of<br />
-            <span className="italic">chasing light.</span>
+            A photo shop with<br />
+            <span className="italic">a big passion.</span>
           </h1>
         </div>
       </div>
@@ -42,15 +42,15 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             <div className="relative aspect-[3/4] overflow-hidden md:sticky md:top-32">
               <Image
-                src="https://placehold.co/700x900/2D2820/C4A06A?text=Elena+Moreau"
+                src="/images/mis/fashion-forward.jpg"
                 alt="Elena Moreau, Lead Photographer"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-ink/80 to-transparent">
-                <p className="font-display text-parchment text-xl">Elena Moreau</p>
-                <p className="text-parchment/60 text-sm mt-1">Lead Photographer &amp; Founder</p>
+                <p className="font-display text-parchment text-xl">Sandra</p>
+                <p className="text-parchment/60 text-sm mt-1">Photographer &amp; Founder</p>
               </div>
             </div>
 
@@ -59,12 +59,12 @@ export default function AboutPage() {
                 A note from the founder
               </p>
               <p className="font-display text-2xl text-ink leading-[1.4] italic">
-                &ldquo;I picked up my first camera at seventeen. I haven&apos;t put it down since.&rdquo;
+                &ldquo;Every person has a story worth capturing. I just help tell it.&rdquo;
               </p>
               {[
-                "After studying photojournalism at Columbia and spending three years shooting editorial for The New York Times Magazine, I founded Lumière Studio in 2012 with a simple belief: photography is a collaborative act. The best images happen when trust exists between photographer and subject.",
-                "Today, our team of three works on an intentionally small roster of clients each year. We don't take every booking — we take the ones where we feel genuine alignment with the vision and the people involved.",
-                "Our approach is unhurried. We spend time with you before the session — understanding your aesthetic, your story, what matters to you. That preparation makes every image more intentional.",
+                "Hi, I'm Sandra. I started Photo By Sandra because I genuinely love photography and the people I get to meet through it. Just me, my camera, and a real care for getting your photos right.",
+                "I work with a small number of clients at a time so I can give each project the attention it deserves. Whether it's a family portrait, a wedding day, or a product shoot, I treat every booking as if it's the only one.",
+                "My approach is relaxed and unhurried. I want you to feel comfortable, not posed. The best photos happen when people forget there's a camera in the room.",
               ].map((text, i) => (
                 <p key={i} className="text-muted leading-[1.85]">
                   {text}
@@ -103,21 +103,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Press ── */}
-      <section className="py-20 md:py-28 bg-ink">
-        <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <p className="text-xs tracking-[0.2em] uppercase text-gold/60 mb-10 text-center">
-            As Featured In
-          </p>
-          <div className="flex flex-wrap justify-center gap-10 md:gap-16">
-            {["Vogue", "ELLE", "The New York Times", "Harper&apos;s Bazaar", "W Magazine"].map((pub) => (
-              <p key={pub} className="font-display text-lg text-parchment/30 tracking-[0.05em]">
-                {pub}
-              </p>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 }
