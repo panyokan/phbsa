@@ -42,16 +42,22 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             <Reveal direction="left">
-              <div className="relative aspect-[3/4] overflow-hidden md:sticky md:top-32">
+              <div className="group relative aspect-[3/4] overflow-hidden md:sticky md:top-32">
                 <Image
-                  src="/images/mis/fashion-forward.jpg"
-                  alt="Elena Moreau, Lead Photographer"
+                  src="/images/sandra.jpeg"
+                  alt="Sandra, Photographer & Founder of Photo By Sandra"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-ink/80 to-transparent">
-                  <p className="font-display text-parchment text-xl">Sandra</p>
+                {/* Warm gold tint — intensifies on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/20 via-transparent to-transparent mix-blend-multiply transition-opacity duration-700 group-hover:opacity-150" />
+                {/* Vignette — softens on hover to let the image breathe */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_rgba(20,18,16,0.45)_100%)] transition-opacity duration-700 group-hover:opacity-60" />
+                {/* Bottom scrim — grounds the name caption */}
+                <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="font-display text-parchment text-xl">Sandra Patrice</p>
                   <p className="text-parchment/60 text-sm mt-1">Photographer &amp; Founder</p>
                 </div>
               </div>
