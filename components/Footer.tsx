@@ -56,7 +56,7 @@ export default function Footer() {
               <ul className="space-y-2.5 text-sm text-parchment/50">
                 <li>info@photobysandra.com</li>
                 <li>+1 202 527 4695</li>
-                <li className="pt-1">10300 Little Patuxent Pkwy, Columbia, MD 21044</li>
+                {/* <li className="pt-1">10300 Little Patuxent Pkwy, Columbia, MD 21044</li> */}
               </ul>
               <div className="flex gap-4 mt-6">
                 {["Instagram", "Pinterest", "X"].map((name) => (

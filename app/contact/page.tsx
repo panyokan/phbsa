@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const info = [
   { label: "Email",          value: "info@photobysandra.com"            },
   { label: "Phone",          value: "+1 202 527 4695"                   },
-  { label: "Studio Address", value: "10300 Little Patuxent Pkwy, Columbia, MD 21044, United States" },
+  // { label: "Studio Address", value: "10300 Little Patuxent Pkwy, Columbia, MD 21044, United States" },
   { label: "Office Hours",   value: "Mon–Fri, 9am–6pm ET"               },
 ];
 
