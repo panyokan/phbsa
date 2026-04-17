@@ -166,8 +166,7 @@ export default function HomePage() {
               <span className="italic text-gold-light">Extraordinary</span>
             </h2>
             <p className="text-parchment/60 leading-relaxed mb-10 max-w-lg mx-auto">
-              Sessions book out 4–6 weeks in advance. Reserve your date today and
-              let&apos;s begin building your story.
+              Reserve your date today and let&apos;s begin building your story.
             </p>
             <Link
               href="/book"
