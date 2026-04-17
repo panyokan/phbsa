@@ -22,7 +22,11 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setState("submitting");
-    await new Promise((res) => setTimeout(res, 1200));
+    await fetch("https://submit-form.com/pZGk01PX7", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(formData),
+    });
     setState("success");
   };
 
