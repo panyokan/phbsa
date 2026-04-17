@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "How We Work",
@@ -70,8 +71,8 @@ export default function HowWeWorkPage() {
       {/* ── Page Header ── */}
       <div className="pt-40 pb-20 md:pt-48 md:pb-28 bg-ink-soft">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <p className="text-xs tracking-[0.2em] uppercase text-gold mb-4">Process</p>
-          <h1 className="font-display text-5xl md:text-7xl text-parchment leading-[1.05] tracking-[-0.02em] max-w-2xl">
+          <p className="text-xs tracking-[0.2em] uppercase text-gold mb-4 [animation:fade-up_0.5s_ease-out_0.1s_both]">Process</p>
+          <h1 className="font-display text-5xl md:text-7xl text-parchment leading-[1.05] tracking-[-0.02em] max-w-2xl [animation:fade-up_0.65s_ease-out_0.25s_both]">
             Thoughtful work<br />
             <span className="italic">takes time.</span>
           </h1>
@@ -82,23 +83,24 @@ export default function HowWeWorkPage() {
       <section className="py-24 md:py-32 bg-parchment">
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
           {steps.map((step, i) => (
-            <div
-              key={step.number}
-              className={`grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 py-12 ${
-                i < steps.length - 1 ? "border-b border-parchment-mid" : ""
-              }`}
-            >
-              <div className="flex md:flex-col gap-4 md:gap-2">
-                <p className="font-display text-3xl text-gold">{step.number}</p>
-                <p className="text-xs tracking-[0.1em] uppercase text-muted self-end md:self-auto">
-                  {step.duration}
-                </p>
+            <Reveal key={step.number} delay={i < 3 ? i * 80 : 0}>
+              <div
+                className={`grid grid-cols-1 md:grid-cols-[120px_1fr] gap-4 md:gap-12 py-12 ${
+                  i < steps.length - 1 ? "border-b border-parchment-mid" : ""
+                }`}
+              >
+                <div className="flex md:flex-col gap-4 md:gap-2">
+                  <p className="font-display text-3xl text-gold">{step.number}</p>
+                  <p className="text-xs tracking-[0.1em] uppercase text-muted self-end md:self-auto">
+                    {step.duration}
+                  </p>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <h2 className="font-display text-2xl md:text-3xl text-ink">{step.title}</h2>
+                  <p className="text-muted leading-[1.8] max-w-xl">{step.desc}</p>
+                </div>
               </div>
-              <div className="flex flex-col gap-3">
-                <h2 className="font-display text-2xl md:text-3xl text-ink">{step.title}</h2>
-                <p className="text-muted leading-[1.8] max-w-xl">{step.desc}</p>
-              </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -106,16 +108,20 @@ export default function HowWeWorkPage() {
       {/* ── FAQ ── */}
       <section className="py-24 md:py-32 bg-parchment-dark">
         <div className="mx-auto max-w-4xl px-6 lg:px-10">
-          <p className="text-xs tracking-[0.2em] uppercase text-gold mb-4">FAQs</p>
-          <h2 className="font-display text-4xl md:text-5xl text-ink tracking-[-0.02em] mb-16">
-            Common Questions
-          </h2>
+          <Reveal>
+            <p className="text-xs tracking-[0.2em] uppercase text-gold mb-4">FAQs</p>
+            <h2 className="font-display text-4xl md:text-5xl text-ink tracking-[-0.02em] mb-16">
+              Common Questions
+            </h2>
+          </Reveal>
           <div className="space-y-10">
             {faqs.map((faq, i) => (
-              <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-16">
-                <h3 className="font-display text-xl text-ink">{faq.q}</h3>
-                <p className="text-muted leading-[1.8] text-sm">{faq.a}</p>
-              </div>
+              <Reveal key={i} delay={i * 80}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-16">
+                  <h3 className="font-display text-xl text-ink">{faq.q}</h3>
+                  <p className="text-muted leading-[1.8] text-sm">{faq.a}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -123,25 +129,27 @@ export default function HowWeWorkPage() {
 
       {/* ── CTA ── */}
       <section className="py-20 md:py-28 bg-ink text-center">
-        <div className="mx-auto max-w-2xl px-6">
-          <h2 className="font-display text-3xl md:text-5xl text-parchment tracking-[-0.02em] mb-8">
-            Ready to get started?
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="/book"
-              className="inline-flex bg-gold text-ink px-8 py-3.5 text-sm tracking-[0.08em] uppercase font-medium hover:bg-gold-light transition-colors duration-200 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
-            >
-              Book a Session
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex border border-parchment/30 text-parchment/80 px-8 py-3.5 text-sm tracking-[0.08em] uppercase hover:border-parchment hover:text-parchment transition-colors duration-200 active:scale-95 focus-visible:outline-none"
-            >
-              Get in Touch
-            </Link>
+        <Reveal direction="none">
+          <div className="mx-auto max-w-2xl px-6">
+            <h2 className="font-display text-3xl md:text-5xl text-parchment tracking-[-0.02em] mb-8">
+              Ready to get started?
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="/book"
+                className="inline-flex bg-gold text-ink px-8 py-3.5 text-sm tracking-[0.08em] uppercase font-medium hover:bg-gold-light transition-colors duration-200 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+              >
+                Book a Session
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex border border-parchment/30 text-parchment/80 px-8 py-3.5 text-sm tracking-[0.08em] uppercase hover:border-parchment hover:text-parchment transition-colors duration-200 active:scale-95 focus-visible:outline-none"
+              >
+                Get in Touch
+              </Link>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );

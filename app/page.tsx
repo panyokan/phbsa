@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import HeroSlideshow from "@/components/HeroSlideshow";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Photo By Sandra — Photography",
@@ -30,37 +31,41 @@ export default function HomePage() {
       <section className="py-24 md:py-32 bg-parchment">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div className="relative overflow-hidden">
-              <Image
-                src="/images/mis/philo.jpg"
-                alt="Photographer"
-                width={0}
-                height={0}
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="w-full h-auto"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
-            </div>
-            <div className="flex flex-col gap-6">
-              <p className="text-xs tracking-[0.2em] uppercase text-gold">About the Studio</p>
-              <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.1] tracking-[-0.02em]">
-                Photography is an act of faith.
-              </h2>
-              <p className="text-muted leading-[1.8]">
-                Photo By Sandra is a small, passionate photography shop. We believe
-                every photograph should tell a story — yours, told beautifully.
-              </p>
-              <p className="text-muted leading-[1.8]">
-                We work with real people on real moments — portraits, weddings,
-                events, and commercial projects, big or small.
-              </p>
-              <Link
-                href="/about"
-                className="self-start text-sm tracking-[0.08em] uppercase text-gold border-b border-gold pb-0.5 hover:text-gold-dark hover:border-gold-dark transition-colors duration-200 focus-visible:outline-none"
-              >
-                Our Story →
-              </Link>
-            </div>
+            <Reveal direction="left">
+              <div className="relative overflow-hidden">
+                <Image
+                  src="/images/mis/philo.jpg"
+                  alt="Photographer"
+                  width={0}
+                  height={0}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="w-full h-auto"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/30 to-transparent" />
+              </div>
+            </Reveal>
+            <Reveal direction="right" delay={100}>
+              <div className="flex flex-col gap-6">
+                <p className="text-xs tracking-[0.2em] uppercase text-gold">About the Studio</p>
+                <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.1] tracking-[-0.02em]">
+                  Photography is an act of faith.
+                </h2>
+                <p className="text-muted leading-[1.8]">
+                  Photo By Sandra is a small, passionate photography shop. We believe
+                  every photograph should tell a story — yours, told beautifully.
+                </p>
+                <p className="text-muted leading-[1.8]">
+                  We work with real people on real moments — portraits, weddings,
+                  events, and commercial projects, big or small.
+                </p>
+                <Link
+                  href="/about"
+                  className="self-start text-sm tracking-[0.08em] uppercase text-gold border-b border-gold pb-0.5 hover:text-gold-dark hover:border-gold-dark transition-colors duration-200 focus-visible:outline-none"
+                >
+                  Our Story →
+                </Link>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -68,36 +73,39 @@ export default function HomePage() {
       {/* ── Portfolio Teaser ── */}
       <section className="py-24 md:py-32 bg-parchment-dark">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div>
-              <p className="text-xs tracking-[0.2em] uppercase text-gold mb-3">Recent Work</p>
-              <h2 className="font-display text-4xl md:text-5xl text-ink tracking-[-0.02em]">
-                Selected Portfolio
-              </h2>
+          <Reveal>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+              <div>
+                <p className="text-xs tracking-[0.2em] uppercase text-gold mb-3">Recent Work</p>
+                <h2 className="font-display text-4xl md:text-5xl text-ink tracking-[-0.02em]">
+                  Selected Portfolio
+                </h2>
+              </div>
+              <Link
+                href="/portfolio"
+                className="self-start text-sm tracking-[0.08em] uppercase text-gold border-b border-gold pb-0.5 hover:text-gold-dark hover:border-gold-dark transition-colors duration-200 focus-visible:outline-none"
+              >
+                View Full Gallery →
+              </Link>
             </div>
-            <Link
-              href="/portfolio"
-              className="self-start text-sm tracking-[0.08em] uppercase text-gold border-b border-gold pb-0.5 hover:text-gold-dark hover:border-gold-dark transition-colors duration-200 focus-visible:outline-none"
-            >
-              View Full Gallery →
-            </Link>
-          </div>
+          </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {portfolioTeaser.map((item, i) => (
-              <Link
-                key={i}
-                href="/portfolio"
-                className="group block relative aspect-[4/5] overflow-hidden"
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  className={`object-cover ${item.pos} transition-transform duration-500 group-hover:scale-105`}
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </Link>
+              <Reveal key={i} delay={i * 120}>
+                <Link
+                  href="/portfolio"
+                  className="group block relative aspect-[4/5] overflow-hidden"
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    className={`object-cover ${item.pos} transition-transform duration-500 group-hover:scale-105`}
+                    sizes="(max-width: 640px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Link>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -106,62 +114,69 @@ export default function HomePage() {
       {/* ── Pricing Teaser ── */}
       <section className="py-24 md:py-32 bg-parchment">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <div className="text-center mb-14">
-            <p className="text-xs tracking-[0.2em] uppercase text-gold mb-3">Investment</p>
-            <h2 className="font-display text-4xl md:text-5xl text-ink tracking-[-0.02em]">
-              Simple, Transparent Pricing
-            </h2>
-          </div>
+          <Reveal>
+            <div className="text-center mb-14">
+              <p className="text-xs tracking-[0.2em] uppercase text-gold mb-3">Investment</p>
+              <h2 className="font-display text-4xl md:text-5xl text-ink tracking-[-0.02em]">
+                Simple, Transparent Pricing
+              </h2>
+            </div>
+          </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {packages.map((pkg, i) => (
-              <div
-                key={pkg.name}
-                className={`p-8 flex flex-col gap-4 ${
-                  i === 1 ? "bg-ink text-parchment" : "bg-parchment-dark text-ink"
-                }`}
-              >
-                <p className={`text-xs tracking-[0.15em] uppercase ${i === 1 ? "text-gold-light" : "text-gold"}`}>
-                  {pkg.name}
-                </p>
-                <p className={`font-display text-4xl tracking-[-0.02em] ${i === 1 ? "text-parchment" : "text-ink"}`}>
-                  {pkg.price}
-                </p>
-                <p className={`text-sm leading-relaxed ${i === 1 ? "text-parchment/60" : "text-muted"}`}>
-                  {pkg.desc}
-                </p>
-              </div>
+              <Reveal key={pkg.name} delay={i * 120}>
+                <div
+                  className={`p-8 flex flex-col gap-4 ${
+                    i === 1 ? "bg-ink text-parchment" : "bg-parchment-dark text-ink"
+                  }`}
+                >
+                  <p className={`text-xs tracking-[0.15em] uppercase ${i === 1 ? "text-gold-light" : "text-gold"}`}>
+                    {pkg.name}
+                  </p>
+                  <p className={`font-display text-4xl tracking-[-0.02em] ${i === 1 ? "text-parchment" : "text-ink"}`}>
+                    {pkg.price}
+                  </p>
+                  <p className={`text-sm leading-relaxed ${i === 1 ? "text-parchment/60" : "text-muted"}`}>
+                    {pkg.desc}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
-          <div className="text-center mt-10">
-            <Link
-              href="/pricing"
-              className="inline-flex text-sm tracking-[0.08em] uppercase text-gold border-b border-gold pb-0.5 hover:text-gold-dark hover:border-gold-dark transition-colors duration-200 focus-visible:outline-none"
-            >
-              See Full Pricing Details →
-            </Link>
-          </div>
+          <Reveal delay={200}>
+            <div className="text-center mt-10">
+              <Link
+                href="/pricing"
+                className="inline-flex text-sm tracking-[0.08em] uppercase text-gold border-b border-gold pb-0.5 hover:text-gold-dark hover:border-gold-dark transition-colors duration-200 focus-visible:outline-none"
+              >
+                See Full Pricing Details →
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ── Book CTA ── */}
       <section className="py-24 md:py-36 bg-ink-soft">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="text-xs tracking-[0.2em] uppercase text-gold mb-4">Ready?</p>
-          <h2 className="font-display text-4xl md:text-6xl text-parchment leading-[1.1] tracking-[-0.02em] mb-6">
-            Let&apos;s Create Something<br />
-            <span className="italic text-gold-light">Extraordinary</span>
-          </h2>
-          <p className="text-parchment/60 leading-relaxed mb-10 max-w-lg mx-auto">
-            Sessions book out 4–6 weeks in advance. Reserve your date today and
-            let&apos;s begin building your story.
-          </p>
-          <Link
-            href="/book"
-            className="inline-flex items-center bg-gold text-ink px-10 py-4 text-sm tracking-[0.1em] uppercase font-medium transition-colors duration-200 hover:bg-gold-light active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
-          >
-            Book a Session
-          </Link>
-        </div>
+        <Reveal direction="none">
+          <div className="mx-auto max-w-3xl px-6 text-center">
+            <p className="text-xs tracking-[0.2em] uppercase text-gold mb-4">Ready?</p>
+            <h2 className="font-display text-4xl md:text-6xl text-parchment leading-[1.1] tracking-[-0.02em] mb-6">
+              Let&apos;s Create Something<br />
+              <span className="italic text-gold-light">Extraordinary</span>
+            </h2>
+            <p className="text-parchment/60 leading-relaxed mb-10 max-w-lg mx-auto">
+              Sessions book out 4–6 weeks in advance. Reserve your date today and
+              let&apos;s begin building your story.
+            </p>
+            <Link
+              href="/book"
+              className="inline-flex items-center bg-gold text-ink px-10 py-4 text-sm tracking-[0.1em] uppercase font-medium transition-colors duration-200 hover:bg-gold-light active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+            >
+              Book a Session
+            </Link>
+          </div>
+        </Reveal>
       </section>
     </>
   );
