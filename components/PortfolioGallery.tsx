@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
-const categories = ["All", "Portraits", "Weddings", "Events", "Commercial"] as const;
+const categories = ["All", "Portraits", "Weddings", "Events"] as const;
 type Category = (typeof categories)[number];
 
 interface GalleryItem {
@@ -16,17 +16,17 @@ interface GalleryItem {
 }
 
 const items: GalleryItem[] = [
-  { id: 1,  src: "/images/port/streetwindy-portrait.jpg",  category: "Portraits",  alt: "Portrait session",   w: 800, h: 1000 },
+  { id: 1,  src: "/images/hero/433A5636_port.jpg",  category: "Portraits",  alt: "Portrait session",   w: 800, h: 1000 },
   { id: 2,  src: "/images/port/cropped-40294.jpg",         category: "Weddings",   alt: "Wedding ceremony",   w: 800, h: 600  },
-  { id: 3,  src: "/images/port/pexels-catwalk.jpg",        category: "Events",     alt: "Corporate event",    w: 800, h: 800  },
-  { id: 4,  src: "/images/hero/433A5636_port.jpg",         category: "Portraits",  alt: "Studio portrait",    w: 800, h: 1000 },
-  { id: 5,  src: "/images/port/13758299-barber.jpg",       category: "Commercial", alt: "Commercial product", w: 800, h: 600  },
+  { id: 3,  src: "/images/port/433A4934.jpg",        category: "Events",     alt: "Corporate event",    w: 800, h: 800  },
+  // { id: 5,  src: "/images/port/13758299-barber.jpg",       category: "Commercial", alt: "Commercial product", w: 800, h: 600  },
   { id: 6,  src: "/images/port/433A9781copy.jpg",          category: "Weddings",   alt: "Wedding reception",  w: 800, h: 600  },
   { id: 7,  src: "/images/port/jillwellington-girl.jpg",   category: "Portraits",  alt: "Outdoor portrait",   w: 800, h: 800  },
-  { id: 8,  src: "/images/port/433A4934.jpg",              category: "Events",     alt: "Baby Shower",         w: 800, h: 1000 },
-  { id: 9,  src: "/images/port/commercial.jpg",            category: "Commercial", alt: "Brand shoot",        w: 800, h: 600  },
+  { id: 8,  src: "/images/port/pexels-catwalk.jpg",              category: "Events",     alt: "Baby Shower",         w: 800, h: 1000 },
+  // { id: 9,  src: "/images/port/commercial.jpg",            category: "Commercial", alt: "Brand shoot",        w: 800, h: 600  },
   { id: 10, src: "/images/port/433A9207copy.jpg",          category: "Weddings",   alt: "Bride and groom",    w: 800, h: 1000 },
   { id: 11, src: "/images/port/birthday-celebration.jpg",  category: "Events",     alt: "Birthday event",     w: 800, h: 800  },
+  { id: 4,  src: "/images/port/streetwindy-portrait.jpg",         category: "Portraits",  alt: "Studio portrait",    w: 800, h: 1000 },
   // { id: 12, src: "https://placehold.co/800x600/3D3730/B8873A?text=Portrait+4", category: "Portraits", alt: "Family portrait", w: 800, h: 600 },
 ];
 

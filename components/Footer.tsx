@@ -85,6 +85,17 @@ export default function Footer() {
             <Link href="/policies" className="hover:text-parchment/60 transition-colors duration-200">Studio Policies</Link>
           </div>
         </div>
+        <p className="mt-4 text-center text-xs text-parchment/20">
+          Built by{" "}
+          <a
+            href="https://algonixtechnologies.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-parchment/50 transition-colors duration-200"
+          >
+            Algonix Technologies
+          </a>
+        </p>
       </div>
     </footer>
   );
