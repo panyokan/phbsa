@@ -46,7 +46,7 @@ const sections = [
     title: "Third-Party Services",
     body: [
       "We use Formspark to process contact form submissions, and Cal.com to manage session bookings. Both services have their own privacy policies and handle your data in accordance with GDPR.",
-      "Our website is hosted on Vercel. Basic server logs (IP address, request time) may be retained by Vercel for up to 30 days for security purposes.",
+      // "Our website is hosted on Vercel. Basic server logs (IP address, request time) may be retained by Vercel for up to 30 days for security purposes.",
     ],
   },
   {

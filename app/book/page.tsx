@@ -55,8 +55,28 @@ export default function BookPage() {
           </div>
 
           {/* Embed */}
-          <div className="min-h-[700px] md:min-h-[920px] rounded-sm border border-parchment-mid">
+          <div className="min-h-[700px] md:min-h-[920px]">
             <CalEmbed />
+          </div>
+
+          {/* Policy notice */}
+          <div className="mt-6 pt-6 border-t border-parchment-mid flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <p className="text-sm text-muted leading-relaxed">
+              By booking you agree to our{" "}
+              <Link
+                href="/policies"
+                className="text-gold hover:text-gold-dark transition-colors duration-200 focus-visible:outline-none underline underline-offset-2"
+              >
+                Studio Policies
+              </Link>
+              , including retainer and cancellation terms.
+            </p>
+            <Link
+              href="/policies"
+              className="shrink-0 text-xs tracking-[0.1em] uppercase text-gold border-b border-gold pb-0.5 hover:text-gold-dark hover:border-gold-dark transition-colors duration-200 focus-visible:outline-none"
+            >
+              Read Policies →
+            </Link>
           </div>
         </div>
       </section>

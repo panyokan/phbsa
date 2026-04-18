@@ -17,9 +17,9 @@ const portfolioTeaser = [
 ];
 
 const packages = [
-  { name: "Essential", price: "$850",   desc: "2-hour portrait session · 30 edited images" },
-  { name: "Classic",   price: "$1,800", desc: "Half-day coverage · 80 edited images"        },
-  { name: "Premium",   price: "$3,500", desc: "Full-day coverage · unlimited edited images"  },
+  { name: "The Essential", price: "$450",   desc: "1-hour session · 1 location · 15 edited images"           },
+  { name: "The Classic",   price: "$850",   desc: "2-hour session · 2 locations · 30 edited images"          },
+  { name: "The Premium",   price: "$1,800", desc: "4-hour session · 3 locations · 50 edited images" },
 ];
 
 export default function HomePage() {

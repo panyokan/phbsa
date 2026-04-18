@@ -10,49 +10,51 @@ export const metadata: Metadata = {
 
 const packages = [
   {
-    name: "Essential",
-    price: "$850",
-    tagline: "Perfect for solo portraits and headshots",
+    name: "The Essential",
+    price: "$450",
+    tagline: "Ideal for a focused studio portrait or a beautiful outdoor session",
+    studioNote: "Includes up to $100 studio rental fee",
     includes: [
-      "2-hour session",
-      "1 location",
-      "30 fully edited digital images",
+      "1-hour session",
+      "1 location — studio or outdoor",
+      "15 fully edited high-resolution images",
       "Private online gallery",
       "Personal use license",
-      "14-day delivery",
+      "15–20 day delivery",
     ],
+    extras: [],
     popular: false,
   },
   {
-    name: "Classic",
-    price: "$1,800",
-    tagline: "Ideal for couples, families, and half-day events",
+    name: "The Classic",
+    price: "$850",
+    tagline: "Perfect for family stories or maternity sessions",
+    studioNote: "Includes up to $200 studio rental fee",
     includes: [
-      "Half-day coverage (4 hours)",
-      "Up to 2 locations",
-      "80 fully edited digital images",
+      "2-hour session",
+      "Up to 2 locations — studio & outdoor available",
+      "30 fully edited high-resolution images",
       "Private online gallery",
-      "Personal + commercial use license",
-      "10-day delivery",
-      "Print-ready files included",
+      "Personal use license",
+      "15–20 day delivery",
     ],
+    extras: ["$50 Print Credit"],
     popular: true,
   },
   {
-    name: "Premium",
-    price: "$3,500",
-    tagline: "Full-day coverage for weddings and major projects",
+    name: "The Premium",
+    price: "$1,800",
+    tagline: "The full professional experience for branding or events",
+    studioNote: "Includes up to $400 studio rental fee",
     includes: [
-      "Full-day coverage (8+ hours)",
-      "Unlimited locations",
-      "Unlimited edited digital images",
-      "Private gallery + USB delivery",
-      "Full commercial use license",
-      "7-day delivery",
-      "Print-ready files",
-      "Engagement session included",
-      "Album design consultation",
+      "4-hour session",
+      "Up to 3 locations — studio & outdoor available",
+      "50 fully edited images",
+      "Private online gallery",
+      "Personal + commercial use license",
+      "10–15 day delivery",
     ],
+    extras: ["USB Backup Delivery"],
     popular: false,
   },
 ];
@@ -83,6 +85,15 @@ export default function PricingPage() {
       {/* ── Packages ── */}
       <section className="py-24 md:py-32 bg-parchment">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <Reveal>
+            <div className="flex items-start gap-4 mb-12 pb-10 border-b border-parchment-mid">
+              <div className="mt-1 h-4 w-px bg-gold shrink-0" />
+              <p className="text-sm text-muted leading-relaxed max-w-2xl">
+                Pricing for all packages is all-inclusive — your professional studio rental is already covered.{" "}
+                <span className="text-ink">No hidden fees, just your beautiful photos.</span>
+              </p>
+            </div>
+          </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {packages.map((pkg, i) => (
               <Reveal key={pkg.name} delay={i * 120}>
@@ -102,8 +113,11 @@ export default function PricingPage() {
                   <p className={`font-display text-5xl tracking-[-0.02em] mb-2 ${pkg.popular ? "text-parchment" : "text-ink"}`}>
                     {pkg.price}
                   </p>
-                  <p className={`text-sm mb-8 ${pkg.popular ? "text-parchment/50" : "text-muted"}`}>
+                  <p className={`text-sm mb-1 ${pkg.popular ? "text-parchment/50" : "text-muted"}`}>
                     {pkg.tagline}
+                  </p>
+                  <p className={`text-xs mb-8 ${pkg.popular ? "text-gold-light/70" : "text-gold/70"}`}>
+                    {pkg.studioNote}
                   </p>
                   <div className={`h-px mb-8 ${pkg.popular ? "bg-parchment/10" : "bg-parchment-mid"}`} />
                   <ul className="space-y-3 flex-1">
@@ -111,6 +125,14 @@ export default function PricingPage() {
                       <li key={item} className="flex items-start gap-3 text-sm">
                         <span className={`mt-1.5 block h-1 w-1 shrink-0 rounded-full ${pkg.popular ? "bg-gold-light" : "bg-gold"}`} />
                         <span className={pkg.popular ? "text-parchment/70" : "text-muted"}>
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                    {pkg.extras.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm">
+                        <span className={`mt-1.5 block h-1 w-1 shrink-0 rounded-full ${pkg.popular ? "bg-gold-light" : "bg-gold"}`} />
+                        <span className={`font-medium ${pkg.popular ? "text-gold-light" : "text-gold"}`}>
                           {item}
                         </span>
                       </li>

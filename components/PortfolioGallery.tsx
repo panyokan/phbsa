@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 const categories = ["All", "Portraits", "Weddings", "Events", "Commercial"] as const;
@@ -16,28 +16,58 @@ interface GalleryItem {
 }
 
 const items: GalleryItem[] = [
-  { id: 1,  src: "https://placehold.co/800x1000/2D2820/C4A06A?text=Portrait",     category: "Portraits",   alt: "Portrait session",    w: 800, h: 1000 },
-  { id: 2,  src: "https://placehold.co/800x600/1A1714/B8873A?text=Wedding",       category: "Weddings",    alt: "Wedding ceremony",    w: 800, h: 600  },
-  { id: 3,  src: "https://placehold.co/800x800/3D3730/D4A454?text=Event",         category: "Events",      alt: "Corporate event",     w: 800, h: 800  },
-  { id: 4,  src: "https://placehold.co/800x1000/1A1714/C4A06A?text=Portrait+2",   category: "Portraits",   alt: "Studio portrait",     w: 800, h: 1000 },
-  { id: 5,  src: "https://placehold.co/800x600/2D2820/D4A454?text=Commercial",    category: "Commercial",  alt: "Commercial product",  w: 800, h: 600  },
-  { id: 6,  src: "https://placehold.co/800x600/3D3730/B8873A?text=Wedding+2",     category: "Weddings",    alt: "Wedding reception",   w: 800, h: 600  },
-  { id: 7,  src: "https://placehold.co/800x800/1A1714/C4A06A?text=Portrait+3",    category: "Portraits",   alt: "Outdoor portrait",    w: 800, h: 800  },
-  { id: 8,  src: "https://placehold.co/800x1000/2D2820/D4A454?text=Event+2",      category: "Events",      alt: "Gala event",          w: 800, h: 1000 },
-  { id: 9,  src: "https://placehold.co/800x600/3D3730/B8873A?text=Commercial+2",  category: "Commercial",  alt: "Brand shoot",         w: 800, h: 600  },
-  { id: 10, src: "https://placehold.co/800x1000/1A1714/D4A454?text=Wedding+3",    category: "Weddings",    alt: "Bride and groom",     w: 800, h: 1000 },
-  { id: 11, src: "https://placehold.co/800x800/2D2820/C4A06A?text=Event+3",       category: "Events",      alt: "Birthday event",      w: 800, h: 800  },
-  { id: 12, src: "https://placehold.co/800x600/3D3730/B8873A?text=Portrait+4",    category: "Portraits",   alt: "Family portrait",     w: 800, h: 600  },
+  { id: 1,  src: "/images/port/streetwindy-portrait.jpg",  category: "Portraits",  alt: "Portrait session",   w: 800, h: 1000 },
+  { id: 2,  src: "/images/port/cropped-40294.jpg",         category: "Weddings",   alt: "Wedding ceremony",   w: 800, h: 600  },
+  { id: 3,  src: "/images/port/pexels-catwalk.jpg",        category: "Events",     alt: "Corporate event",    w: 800, h: 800  },
+  { id: 4,  src: "/images/hero/433A5636_port.jpg",         category: "Portraits",  alt: "Studio portrait",    w: 800, h: 1000 },
+  { id: 5,  src: "/images/port/13758299-barber.jpg",       category: "Commercial", alt: "Commercial product", w: 800, h: 600  },
+  { id: 6,  src: "/images/port/433A9781copy.jpg",          category: "Weddings",   alt: "Wedding reception",  w: 800, h: 600  },
+  { id: 7,  src: "/images/port/jillwellington-girl.jpg",   category: "Portraits",  alt: "Outdoor portrait",   w: 800, h: 800  },
+  { id: 8,  src: "/images/port/433A4934.jpg",              category: "Events",     alt: "Baby Shower",         w: 800, h: 1000 },
+  { id: 9,  src: "/images/port/commercial.jpg",            category: "Commercial", alt: "Brand shoot",        w: 800, h: 600  },
+  { id: 10, src: "/images/port/433A9207copy.jpg",          category: "Weddings",   alt: "Bride and groom",    w: 800, h: 1000 },
+  { id: 11, src: "/images/port/birthday-celebration.jpg",  category: "Events",     alt: "Birthday event",     w: 800, h: 800  },
+  // { id: 12, src: "https://placehold.co/800x600/3D3730/B8873A?text=Portrait+4", category: "Portraits", alt: "Family portrait", w: 800, h: 600 },
 ];
 
 export default function PortfolioGallery() {
-  const [active, setActive] = useState<Category>("All");
-  const [hovered, setHovered] = useState<number | null>(null);
+  const [active, setActive]     = useState<Category>("All");
+  const [hovered, setHovered]   = useState<number | null>(null);
+  const [lightbox, setLightbox] = useState<GalleryItem | null>(null);
 
   const filtered = active === "All" ? items : items.filter((i) => i.category === active);
 
+  const close = useCallback(() => setLightbox(null), []);
+
+  const prev = useCallback(() => {
+    if (!lightbox) return;
+    const idx = filtered.findIndex((i) => i.id === lightbox.id);
+    setLightbox(filtered[(idx - 1 + filtered.length) % filtered.length]);
+  }, [lightbox, filtered]);
+
+  const next = useCallback(() => {
+    if (!lightbox) return;
+    const idx = filtered.findIndex((i) => i.id === lightbox.id);
+    setLightbox(filtered[(idx + 1) % filtered.length]);
+  }, [lightbox, filtered]);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightbox, close, prev, next]);
+
   return (
-    <div>
+    <>
       {/* Filter buttons */}
       <div className="flex flex-wrap gap-2 mb-10">
         {categories.map((cat) => (
@@ -61,6 +91,7 @@ export default function PortfolioGallery() {
           <div
             key={item.id}
             className="mb-4 break-inside-avoid relative overflow-hidden group cursor-pointer"
+            onClick={() => setLightbox(item)}
             onMouseEnter={() => setHovered(item.id)}
             onMouseLeave={() => setHovered(null)}
           >
@@ -88,6 +119,60 @@ export default function PortfolioGallery() {
           </div>
         ))}
       </div>
-    </div>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-50 bg-ink/95 flex items-center justify-center"
+          onClick={close}
+        >
+          {/* Close */}
+          <button
+            onClick={close}
+            aria-label="Close"
+            className="absolute top-6 right-6 text-parchment/60 hover:text-parchment transition-colors duration-200 focus-visible:outline-none text-2xl leading-none"
+          >
+            ✕
+          </button>
+
+          {/* Prev */}
+          <button
+            onClick={(e) => { e.stopPropagation(); prev(); }}
+            aria-label="Previous image"
+            className="absolute left-4 md:left-8 text-parchment/50 hover:text-gold transition-colors duration-200 focus-visible:outline-none text-3xl leading-none select-none"
+          >
+            ‹
+          </button>
+
+          {/* Image */}
+          <div
+            className="relative max-w-4xl w-full mx-16 md:mx-24 max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={lightbox.src}
+              alt={lightbox.alt}
+              width={lightbox.w}
+              height={lightbox.h}
+              className="w-full h-auto max-h-[90vh] object-contain"
+              sizes="100vw"
+              priority
+            />
+            <p className="mt-3 text-center text-xs tracking-[0.15em] uppercase text-parchment/40">
+              {lightbox.alt} &mdash; {lightbox.category}
+            </p>
+          </div>
+
+          {/* Next */}
+          <button
+            onClick={(e) => { e.stopPropagation(); next(); }}
+            aria-label="Next image"
+            className="absolute right-4 md:right-8 text-parchment/50 hover:text-gold transition-colors duration-200 focus-visible:outline-none text-3xl leading-none select-none"
+          >
+            ›
+          </button>
+        </div>
+      )}
+    </>
   );
 }

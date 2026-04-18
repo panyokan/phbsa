@@ -8,6 +8,7 @@ const links = [
   { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" },
   { href: "/book", label: "Book a Session" },
+  { href: "/policies", label: "Studio Policies" },
 ];
 
 export default function Footer() {
@@ -78,9 +79,11 @@ export default function Footer() {
           <p className="text-xs text-parchment/30">
             © {new Date().getFullYear()} Photo By Sandra. All rights reserved.
           </p>
-          <p className="text-xs text-parchment/30">
-            Privacy Policy · Terms of Service
-          </p>
+          <div className="flex gap-4 text-xs text-parchment/30">
+            <Link href="/privacy" className="hover:text-parchment/60 transition-colors duration-200">Privacy Policy</Link>
+            <span>·</span>
+            <Link href="/policies" className="hover:text-parchment/60 transition-colors duration-200">Studio Policies</Link>
+          </div>
         </div>
       </div>
     </footer>

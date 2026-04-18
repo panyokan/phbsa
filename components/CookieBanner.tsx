@@ -22,7 +22,7 @@ export default function CookieBanner() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 px-6 py-5 md:px-10 bg-ink/95 backdrop-blur-md border-t border-parchment/10 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8 animate-[fade-up_0.4s_ease-out_both]">
+    <div className="fixed bottom-0 left-0 right-0 z-50 px-6 py-3 md:px-10 bg-ink/95 backdrop-blur-md border-t border-parchment/10 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-8 animate-[fade-up_0.4s_ease-out_both]">
       <p className="text-parchment/70 text-sm leading-relaxed flex-1">
         We use cookies to improve your experience on our site.{" "}
         <a href="/privacy" className="text-gold underline underline-offset-4 hover:text-gold-light transition-colors duration-200">

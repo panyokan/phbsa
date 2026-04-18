@@ -72,9 +72,9 @@ export default function AboutPage() {
                   &ldquo;Every person has a story worth capturing. I just help tell it.&rdquo;
                 </p>
                 {[
-                  "Hi, I'm Sandra. I started Photo By Sandra because I genuinely love photography and the people I get to meet through it. Just me, my camera, and a real care for getting your photos right.",
-                  "I work with a small number of clients at a time so I can give each project the attention it deserves. Whether it's a family portrait, a wedding day, or a product shoot, I treat every booking as if it's the only one.",
-                  "My approach is relaxed and unhurried. I want you to feel comfortable, not posed. The best photos happen when people forget there's a camera in the room.",
+                  "My name is Sandra Patrice, and I have a deep passion for photography. There is nothing that makes me happier than creating lasting memories for people to cherish forever. I truly enjoy the process and love engaging with every person I meet through my work. With just me and my camera, I take real care to ensure your photos are exactly right.",
+                  "To provide the dedicated attention each project deserves, I work with only a small number of clients at a time. Whether it's a family portrait, graduation, maternity session, children's portraits, or professional headshots, I treat every booking as my top priority.",
+                  "My approach is relaxed and unhurried because I want you to feel completely comfortable, never forced or over-posed. I believe the best photos happen naturally when you forget there's even a camera in the room.",
                 ].map((text, i) => (
                   <p key={i} className="text-muted leading-[1.85]">
                     {text}
