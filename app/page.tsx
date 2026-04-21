@@ -94,19 +94,20 @@ const personSchema = {
 
 const portfolioTeaser = [
   {
-    src: "/images/mis/ethereal-portraits.jpg",
+    src: "/images/hero/433A5636_port.jpg",
+    alt: "Commercial product photography — whisky bottle shoot",
+    pos: "object-center",
+  },
+
+  {
+    src: "/images/port/433A9781copy.jpg",
     alt: "Ethereal portrait photography by Sandra Patrice",
     pos: "object-center",
   },
   {
-    src: "/images/mis/whisky-commercial.jpg",
-    alt: "Commercial product photography — whisky bottle shoot",
-    pos: "object-center",
-  },
-  {
-    src: "/images/mis/fashion-forward.jpg",
+    src: "/images/port/filler/433A4989.jpg",
     alt: "Fashion editorial photography by Photo By Sandra",
-    pos: "object-bottom",
+    pos: "object-center",
   },
 ];
 
