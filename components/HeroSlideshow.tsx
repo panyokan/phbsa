@@ -63,16 +63,16 @@ const slides: {
     cta1: { label: "View Portfolio", href: "/portfolio" },
     cta2: { label: "Book a Session", href: "/book" },
   },
-  {
-    id: 4,
-    image: "/images/hero/lake-wide.jpg",
-    objectPosition: "center",
-    scrim: "light",
-    headline: "Commercial Imagery\nThat Converts",
-    sub: "Brand photography and commercial work that elevates your identity.",
-    cta1: { label: "Our Work", href: "/portfolio" },
-    cta2: { label: "Get in Touch", href: "/contact" },
-  },
+  // {
+  //   id: 4,
+  //   image: "/images/hero/lake-wide.jpg",
+  //   objectPosition: "center",
+  //   scrim: "light",
+  //   headline: "Commercial Imagery\nThat Converts",
+  //   sub: "Brand photography and commercial work that elevates your identity.",
+  //   cta1: { label: "Our Work", href: "/portfolio" },
+  //   cta2: { label: "Get in Touch", href: "/contact" },
+  // },
 ];
 
 export default function HeroSlideshow() {
