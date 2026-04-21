@@ -29,10 +29,10 @@ const slides: {
 }[] = [
   {
     id: 1,
-    image: "/images/hero/portrait.jpg",
+    image: "/images/hero/433A5636_16_9.jpg",
     mobileImage: "/images/hero/433A5636_port.jpg",
     mobileObjectPosition: "28% 100%",
-    objectPosition: "top",
+    objectPosition: "bottom",
     scrim: "none",
     headline: "Portraits That\nReveal the Soul",
     sub: "Intimate, editorial portrait sessions crafted to tell your story.",
