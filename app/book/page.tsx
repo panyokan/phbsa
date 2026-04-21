@@ -3,9 +3,16 @@ import Link from "next/link";
 import CalEmbed from "@/components/CalEmbed";
 
 export const metadata: Metadata = {
-  title: "Book a Session",
+  title: "Book a Photography Session | Photo By Sandra",
   description:
-    "Schedule your portrait, wedding, or commercial photography session with Photo By Sandra.",
+    "Book your portrait, wedding, maternity, or commercial photography session with Sandra Patrice. Choose a date online — confirmation within 24 hours. Columbia, MD.",
+  alternates: { canonical: "https://photobysandra.com/book" },
+  openGraph: {
+    url: "https://photobysandra.com/book",
+    title: "Book a Photography Session | Photo By Sandra",
+    description:
+      "Reserve your portrait, wedding, or commercial photography session. Online booking — confirmation within 24 hours. Columbia, MD.",
+  },
 };
 
 export default function BookPage() {

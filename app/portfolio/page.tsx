@@ -2,9 +2,24 @@ import type { Metadata } from "next";
 import PortfolioGallery from "@/components/PortfolioGallery";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Photography Portfolio | Portraits, Weddings & Commercial Work",
   description:
-    "Browse our full portfolio of portraits, weddings, events, and commercial work.",
+    "Browse Sandra Patrice's portfolio of portrait, wedding, maternity, family, and commercial photography. Based in Columbia, MD — serving DC and Maryland.",
+  alternates: { canonical: "https://photobysandra.com/portfolio" },
+  openGraph: {
+    url: "https://photobysandra.com/portfolio",
+    title: "Photography Portfolio | Portraits, Weddings & Commercial Work",
+    description:
+      "Portrait, wedding, maternity, and commercial photography by Sandra Patrice. Columbia, MD.",
+    images: [
+      {
+        url: "/images/mis/ethereal-portraits.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Portrait photography portfolio — Photo By Sandra",
+      },
+    ],
+  },
 };
 
 export default function PortfolioPage() {

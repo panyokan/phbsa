@@ -3,9 +3,16 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: "Photography Pricing & Packages | Photo By Sandra",
   description:
-    "Simple, transparent pricing for portrait sessions, weddings, events, and commercial work.",
+    "Transparent photography pricing for portraits, weddings, maternity, and commercial sessions. Packages from $450 — studio rental included. No hidden fees. Columbia, MD.",
+  alternates: { canonical: "https://photobysandra.com/pricing" },
+  openGraph: {
+    url: "https://photobysandra.com/pricing",
+    title: "Photography Pricing & Packages | Photo By Sandra",
+    description:
+      "Portrait and wedding photography packages from $450. Studio rental included, no hidden fees. Columbia, MD.",
+  },
 };
 
 const packages = [
@@ -68,9 +75,39 @@ const addOns = [
   { name: "Location Scouting",                 price: "$150"      },
 ];
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Photography",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Photo By Sandra",
+    url: "https://photobysandra.com",
+  },
+  areaServed: {
+    "@type": "State",
+    name: "Maryland",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Photography Packages",
+    itemListElement: packages.map((pkg) => ({
+      "@type": "Offer",
+      name: pkg.name,
+      price: pkg.price.replace("$", "").replace(",", ""),
+      priceCurrency: "USD",
+      description: pkg.tagline,
+    })),
+  },
+};
+
 export default function PricingPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       {/* ── Page Header ── */}
       <div className="pt-40 pb-20 md:pt-48 md:pb-28 bg-ink-soft">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">

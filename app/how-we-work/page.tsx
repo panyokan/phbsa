@@ -3,8 +3,16 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "How We Work",
-  description: "Our process — from the first inquiry through delivery of your final images.",
+  title: "How We Work | Photography Process & FAQ | Photo By Sandra",
+  description:
+    "From initial enquiry to final image delivery — learn Sandra's 6-step photography process. Includes answers to common questions about booking, weather, travel, and editing.",
+  alternates: { canonical: "https://photobysandra.com/how-we-work" },
+  openGraph: {
+    url: "https://photobysandra.com/how-we-work",
+    title: "How We Work | Photography Process & FAQ | Photo By Sandra",
+    description:
+      "Sandra's 6-step process from first enquiry to image delivery. FAQs on booking, travel, weather, and editing styles.",
+  },
 };
 
 const steps = [
@@ -65,9 +73,26 @@ const faqs = [
   },
 ];
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
+
 export default function HowWeWorkPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* ── Page Header ── */}
       <div className="pt-40 pb-20 md:pt-48 md:pb-28 bg-ink-soft">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">

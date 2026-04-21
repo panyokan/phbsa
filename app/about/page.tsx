@@ -4,8 +4,24 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "Learn about Photo By Sandra and our approach to photography.",
+  title: "About Sandra Patrice | Portrait Photographer Columbia, MD",
+  description:
+    "Meet Sandra Patrice — portrait and wedding photographer based in Columbia, MD. A relaxed, unhurried approach that lets genuine moments shine. Learn her story.",
+  alternates: { canonical: "https://photobysandra.com/about" },
+  openGraph: {
+    url: "https://photobysandra.com/about",
+    title: "About Sandra Patrice | Portrait Photographer Columbia, MD",
+    description:
+      "Meet Sandra Patrice, a portrait and wedding photographer based in Columbia, MD. Genuine moments, relaxed approach.",
+    images: [
+      {
+        url: "/images/sandra.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Sandra Patrice — Photographer & Founder of Photo By Sandra",
+      },
+    ],
+  },
 };
 
 const values = [

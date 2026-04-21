@@ -5,26 +5,140 @@ import HeroSlideshow from "@/components/HeroSlideshow";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Photo By Sandra — Photography",
+  title: "Photo By Sandra | Portrait & Wedding Photographer in Columbia, MD",
   description:
-    "Photo By Sandra — a friendly photography shop specializing in portraits, weddings, and commercial work.",
+    "Sandra Patrice captures genuine portraits, weddings, maternity, and family sessions in Columbia, MD and the DC/Maryland area. Packages from $450. Book your session today.",
+  alternates: { canonical: "https://photobysandra.com" },
+  openGraph: {
+    url: "https://photobysandra.com",
+    title: "Photo By Sandra | Portrait & Wedding Photographer in Columbia, MD",
+    description:
+      "Genuine portraits, weddings, and commercial photography by Sandra Patrice. Columbia, MD — packages from $450.",
+  },
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://photobysandra.com/#business",
+  name: "Photo By Sandra",
+  description:
+    "Portrait, wedding, maternity, and commercial photography studio based in Columbia, MD, serving the greater DC/Maryland area.",
+  url: "https://photobysandra.com",
+  telephone: "+12025274695",
+  email: "info@photobysandra.com",
+  image: "https://photobysandra.com/images/hero/433A5002.jpg",
+  priceRange: "$$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "10300 Little Patuxent Pkwy",
+    addressLocality: "Columbia",
+    addressRegion: "MD",
+    postalCode: "21044",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 39.2037,
+    longitude: -76.861,
+  },
+  areaServed: [
+    { "@type": "City", name: "Columbia" },
+    { "@type": "State", name: "Maryland" },
+    { "@type": "City", name: "Washington DC" },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Photography Packages",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        name: "The Essential",
+        price: "450",
+        priceCurrency: "USD",
+        description: "1-hour session, 1 location, 15 edited high-resolution images",
+      },
+      {
+        "@type": "Offer",
+        name: "The Classic",
+        price: "850",
+        priceCurrency: "USD",
+        description: "2-hour session, up to 2 locations, 30 edited high-resolution images",
+      },
+      {
+        "@type": "Offer",
+        name: "The Premium",
+        price: "1800",
+        priceCurrency: "USD",
+        description:
+          "4-hour session, up to 3 locations, 50 edited images, commercial license",
+      },
+    ],
+  },
+  sameAs: [
+    "https://www.instagram.com/photobysandra",
+    "https://www.pinterest.com/photobysandra",
+    "https://www.behance.net/photobysandra",
+  ],
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Sandra Patrice",
+  jobTitle: "Professional Photographer",
+  worksFor: { "@type": "LocalBusiness", name: "Photo By Sandra" },
+  url: "https://photobysandra.com/about",
+  image: "https://photobysandra.com/images/sandra.jpeg",
 };
 
 const portfolioTeaser = [
-  { src: "/images/mis/ethereal-portraits.jpg", alt: "Portrait",   pos: "object-center"    },
-  { src: "/images/mis/whisky-commercial.jpg",  alt: "Commercial", pos: "object-center" },
-  { src: "/images/mis/fashion-forward.jpg",    alt: "Fashion",    pos: "object-bottom"    },
+  {
+    src: "/images/mis/ethereal-portraits.jpg",
+    alt: "Ethereal portrait photography by Sandra Patrice",
+    pos: "object-center",
+  },
+  {
+    src: "/images/mis/whisky-commercial.jpg",
+    alt: "Commercial product photography — whisky bottle shoot",
+    pos: "object-center",
+  },
+  {
+    src: "/images/mis/fashion-forward.jpg",
+    alt: "Fashion editorial photography by Photo By Sandra",
+    pos: "object-bottom",
+  },
 ];
 
 const packages = [
-  { name: "The Essential", price: "$450",   desc: "1-hour session · 1 location · 15 edited images"           },
-  { name: "The Classic",   price: "$850",   desc: "2-hour session · 2 locations · 30 edited images"          },
-  { name: "The Premium",   price: "$1,800", desc: "4-hour session · 3 locations · 50 edited images" },
+  {
+    name: "The Essential",
+    price: "$450",
+    desc: "1-hour session · 1 location · 15 edited images",
+  },
+  {
+    name: "The Classic",
+    price: "$850",
+    desc: "2-hour session · 2 locations · 30 edited images",
+  },
+  {
+    name: "The Premium",
+    price: "$1,800",
+    desc: "4-hour session · 3 locations · 50 edited images",
+  },
 ];
 
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
       <HeroSlideshow />
 
       {/* ── About Teaser ── */}
@@ -35,7 +149,7 @@ export default function HomePage() {
               <div className="relative overflow-hidden">
                 <Image
                   src="/images/mis/philo.jpg"
-                  alt="Photographer"
+                  alt="Sandra Patrice — portrait photographer at Photo By Sandra studio"
                   width={0}
                   height={0}
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -51,11 +165,11 @@ export default function HomePage() {
                   Photography is an act of faith.
                 </h2>
                 <p className="text-muted leading-[1.8]">
-                  Photo By Sandra is a small, passionate photography shop. We believe
-                  every photograph should tell a story — yours, told beautifully.
+                  Photo By Sandra is a small, passionate photography studio in Columbia, MD.
+                  We believe every photograph should tell a story — yours, told beautifully.
                 </p>
                 <p className="text-muted leading-[1.8]">
-                  We work with real people on real moments — portraits, weddings,
+                  We work with real people on real moments — portraits, weddings, maternity,
                   events, and commercial projects, big or small.
                 </p>
                 <Link

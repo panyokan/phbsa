@@ -4,8 +4,16 @@ import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: "Get in touch with Photo By Sandra for bookings and enquiries.",
+  title: "Contact | Photo By Sandra Photography Studio",
+  description:
+    "Get in touch with Photo By Sandra. Reach Sandra Patrice at info@photobysandra.com or +1 202 527 4695 for portrait, wedding, and commercial photography enquiries.",
+  alternates: { canonical: "https://photobysandra.com/contact" },
+  openGraph: {
+    url: "https://photobysandra.com/contact",
+    title: "Contact | Photo By Sandra Photography Studio",
+    description:
+      "Reach out to Photo By Sandra for portrait, wedding, and commercial photography enquiries. Columbia, MD.",
+  },
 };
 
 const info = [
