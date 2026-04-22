@@ -4,12 +4,13 @@ import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 const categories = ["All", "Portraits", "Weddings", "Events"] as const;
-type Category = (typeof categories)[number];
+type FilterCategory = (typeof categories)[number];
+type ItemCategory = Exclude<FilterCategory, "All"> | "Family";
 
 interface GalleryItem {
   id: number;
   src: string;
-  category: Exclude<Category, "All">;
+  category: ItemCategory;
   alt: string;
   w: number;
   h: number;
@@ -22,17 +23,17 @@ const items: GalleryItem[] = [
   { id: 4,  src: "/images/port/433A9781copy.jpg",          category: "Weddings",   alt: "Wedding reception",  w: 800, h: 600  },
   { id: 5,  src: "/images/port/filler/433A4973.jpg",   category: "Events",  alt: "Baby Shower",   w: 800, h: 800  },
   { id: 6,  src: "/images/port/filler/433A4989.jpg",              category: "Events",     alt: "Baby Shower",         w: 800, h: 1000 },
-  { id: 7, src: "/images/port/433A9207copy.jpg",          category: "Weddings",   alt: "Bride and groom",    w: 800, h: 1000 },
+  { id: 7, src: "/images/port/433A9207copy.jpg",          category: "Weddings",   alt: "Bride and Groom",    w: 800, h: 1000 },
   { id: 8, src: "/images/port/filler/433A5010.jpg",  category: "Events",     alt: "Baby Shower",     w: 800, h: 800  },
-  { id: 9, src: "/images/port/filler/433A9509.jpg",  category: "Events",     alt: "Baby Shower",     w: 800, h: 800  },
-  { id: 10, src: "/images/port/filler/433A9749.jpg",  category: "Events",     alt: "Baby Shower",     w: 800, h: 800  },
-  { id: 11, src: "/images/port/filler/433A9904.jpg",  category: "Events",     alt: "Baby Shower",     w: 800, h: 800  },
-  { id: 12, src: "/images/port/filler/cropped-40340.jpg",  category: "Events",     alt: "Baby Shower",     w: 800, h: 800  },
+  { id: 9, src: "/images/port/filler/433A9509.jpg",  category: "Weddings",     alt: "Bride and Groom",     w: 800, h: 800  },
+  { id: 10, src: "/images/port/filler/433A9749.jpg",  category: "Weddings",     alt: "Bride and Groom",     w: 800, h: 800  },
+  { id: 11, src: "/images/port/filler/433A9904.jpg",  category: "Family",     alt: "Family portrait session",     w: 800, h: 800  },
+  { id: 12, src: "/images/port/filler/cropped-40340.jpg",  category: "Weddings",     alt: "Bride and Groom",     w: 800, h: 800  },
   { id: 13,  src: "/images/port/filler/433A5610.jpg",         category: "Portraits",  alt: "Studio portrait",    w: 800, h: 1000 },
 ];
 
 export default function PortfolioGallery() {
-  const [active, setActive]     = useState<Category>("All");
+  const [active, setActive]     = useState<FilterCategory>("All");
   const [hovered, setHovered]   = useState<number | null>(null);
   const [lightbox, setLightbox] = useState<GalleryItem | null>(null);
 
