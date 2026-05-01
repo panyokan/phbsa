@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       "Meet Sandra Patrice, a portrait and wedding photographer based in Columbia, MD. Genuine moments, relaxed approach.",
     images: [
       {
-        url: "/images/sandra.jpeg",
+        url: "/images/sandra_mit.jpg",
         width: 1200,
         height: 630,
         alt: "Sandra Patrice — Photographer & Founder of Photo By Sandra",
@@ -58,13 +58,14 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
             <Reveal direction="left">
-              <div className="group relative aspect-[3/4] overflow-hidden md:sticky md:top-32">
+              <div className="group relative overflow-hidden md:sticky md:top-32">
                 <Image
-                  src="/images/sandra.jpeg"
+                  src="/images/sandra_mit.jpg"
                   alt="Sandra, Photographer & Founder of Photo By Sandra"
-                  fill
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  width={0}
+                  height={0}
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 {/* Warm gold tint — intensifies on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/20 via-transparent to-transparent mix-blend-multiply transition-opacity duration-700 group-hover:opacity-150" />

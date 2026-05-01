@@ -89,7 +89,7 @@ const personSchema = {
   jobTitle: "Professional Photographer",
   worksFor: { "@type": "LocalBusiness", name: "Photo By Sandra" },
   url: "https://photobysandra.com/about",
-  image: "https://photobysandra.com/images/sandra.jpeg",
+  image: "https://photobysandra.com/images/sandra_mit.jpg",
 };
 
 const portfolioTeaser = [
